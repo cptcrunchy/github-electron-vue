@@ -13,3 +13,10 @@ export const avatarUrl = (state) => {
 export const onAuthenticated = (state) => {
   return state.session.ready;
 }
+
+export const userRepos = async (state) => {
+  console.log("state.session);
+  const result = state.session;
+  
+  return result;
+}

@@ -3,8 +3,8 @@ module.exports = {
     repoUrl: 'https://github.com/chamerling/electron-oauth-github-vue'
   },
   oauth: {
-    clientId: process.env.GITHUB_CLIENT_ID || '4a8e6f1b7b6d6be477f4',
-    clientSecret: process.env.GITHUB_CLIENT_SECRET || 'AHAHAHAHAHAHAHAHAHAHAHAHAHA',
+    clientId: process.env.GITHUB_CLIENT_ID || '09310fc5f6b68c9db0e9',
+    clientSecret: process.env.GITHUB_CLIENT_SECRET || '730af408be5856b169b8fd080afd7eaba18e6b7e',
     authorizationUrl: 'http://github.com/login/oauth/authorize',
     tokenUrl: 'https://github.com/login/oauth/access_token',
     useBasicAuthorizationHeader: false,

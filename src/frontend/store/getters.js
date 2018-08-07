@@ -15,8 +15,8 @@ export const onAuthenticated = (state) => {
 }
 
 export const userRepos = async (state) => {
-  console.log("state.session);
+  console.log(state.session.user.login);
   const result = state.session;
   
-  return result;
+  return await result;
 }

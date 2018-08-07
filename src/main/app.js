@@ -35,8 +35,8 @@ app.on('ready', () => {
     skipTaskbar: true,
     titleBarStyle: 'hidden',
     movable: true,
-    width: 580,
-    height: 365
+    width: 800,
+    height: 600
   });
 
   mainWindow.loadURL(`file://${__dirname}/../frontend/index.html`)

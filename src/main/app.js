@@ -1,6 +1,6 @@
 'use strict';
 
-import {app, ipcMain, BrowserWindow, Menu} from 'electron';
+const {app, ipcMain, BrowserWindow, Menu} = require('electron');
 const isDev = require('electron-is-dev');
 const oauthConfig = require('./config').oauth;
 
@@ -33,12 +33,14 @@ app.on('window-all-closed', () => {
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     skipTaskbar: true,
-    titleBarStyle: 'hidden',
+    titleBarStyle: 'default',
     movable: true,
-    width: 580,
-    height: 365
+    width: 800,
+    height: 800
   });
-
+  if (process.env.NODE_ENV !== 'production') {
+    require('vue-devtools').install()
+  }
   mainWindow.loadURL(`file://${__dirname}/../frontend/index.html`)
 });
 

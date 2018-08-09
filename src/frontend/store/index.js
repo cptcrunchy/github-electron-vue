@@ -15,7 +15,8 @@ const state = {
     access_token: window.localStorage.getItem('access_token'),
     ready: false,
     authenticated: false,
-    user: {}
+    user: {},
+    repos: {}
   }
 };
 

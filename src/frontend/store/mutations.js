@@ -5,6 +5,10 @@ export default {
      state.session.user = user;
   },
 
+  [types.SET_USER_REPOS] (state, repos) {
+    state.session.repos = repos;
+  },
+
   [types.SET_ACCESS_TOKEN] (state, token) {
     state.session.access_token = token;
   },

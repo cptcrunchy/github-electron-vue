@@ -1,14 +1,21 @@
 <template lang="jade">
-  .home
-    span Hello {{ username }}
+  .container
+    .home
+      span Hello {{ username }}
+    .repos
+      span
 </template>
 
 <script>
+  
   export default {
     name: 'home',
     computed: {
       username() {
-        return this.$store.getters.username;
+        return this.$store.getters.username
+      },
+      getRepos() {
+        return this.$store.getters.repos
       }
     },
     // TODO: Push this in router

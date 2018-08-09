@@ -13,3 +13,12 @@ export const avatarUrl = (state) => {
 export const onAuthenticated = (state) => {
   return state.session.ready;
 }
+
+export const getRepos = (state) => {
+  const userRepos = Array.from(state.session.repos).forEach(repo => {
+    console.log(repo.full_name)
+    return repo.full_name
+  })
+
+  return userRepos
+}

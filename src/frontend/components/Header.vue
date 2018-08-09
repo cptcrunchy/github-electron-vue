@@ -1,6 +1,6 @@
 <template lang="jade">
   v-toolbar.secondary(light)
-    v-toolbar-title 🚀 Electron + OAuth + Vue + Github 🚀
+    v-toolbar-title 🚀 Codeup-Exercises-Checkr 🚀
     avatar(v-if="isAuthenticated")
     v-btn(icon flat v-if="isAuthenticated" @click.native="logout")
       v-icon close

@@ -9,7 +9,7 @@ import mutations from './mutations';
 
 const state = {
   server: {
-    url: 'http://api.github.com'
+    url: 'https://api.github.com'
   },
   session: {
     access_token: window.localStorage.getItem('access_token'),

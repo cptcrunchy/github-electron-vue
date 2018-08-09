@@ -52,10 +52,10 @@ export const initApp = ({commit, state}) => {
     if (!state.session.access_token) {
       return resolve()
     }
-
     getUser({commit, state}).then(user => {
       commit(types.SET_USER, user)
       commit(types.AUTHENTICATED, user)
+      
       resolve()
     }, err => {
       console.log('Error while getting user from github, user will have to login', err)

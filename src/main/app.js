@@ -32,11 +32,10 @@ app.on('window-all-closed', () => {
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    skipTaskbar: true,
     titleBarStyle: 'default',
     movable: true,
-    width: 800,
-    height: 800
+    useContentSize: true,
+    title: "Checker App"
   });
   if (process.env.NODE_ENV !== 'production') {
     require('vue-devtools').install()

@@ -1,11 +1,11 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import * as actions from './actions';
-import * as getters from './getters';
-import * as types from './mutation-types';
-import plugins from './plugins';
-import mutations from './mutations';
+import * as actions from './actions'
+import * as getters from './getters'
+import * as types from './mutation-types'
+import plugins from './plugins'
+import mutations from './mutations'
 
 const state = {
   server: {
@@ -18,11 +18,11 @@ const state = {
     user: {},
     repos: {}
   }
-};
+}
 
-mutations[types.INIT_SESSION](state);
+mutations[types.INIT_SESSION](state)
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   state,

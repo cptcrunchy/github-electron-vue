@@ -15,10 +15,13 @@ export const onAuthenticated = (state) => {
 }
 
 export const getRepos = (state) => {
-  const userRepos = Array.from(state.session.repos).forEach(repo => {
-    console.log(repo.full_name)
-    return repo.full_name
-  })
-
-  return userRepos
+  const userRepos = Array.from(state.session.repos)
+  
+  const codeupRepos =  userRepos.filter(repo => {
+      return repo.full_name.toLowerCase().includes('codeup-'.toLowerCase())
+    })
+    .map(codeupRepos => {
+      return codeupRepos.full_name.substring(state.session.user.login.length + 1)
+    })
+  return codeupRepos
 }

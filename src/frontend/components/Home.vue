@@ -1,23 +1,27 @@
 <template lang="jade">
+
   .container
     .home
-      span Hello {{ username }}
-    .repos
-      span
+      span Hello {{ username }}. Select the GitHub Repo you want to check for missing exercises.
+    .collection
+      repolist
+
 </template>
 
 <script>
+  import RepoList from './RepoList.vue';
   
   export default {
     name: 'home',
     computed: {
-      username() {
+      username: function() {
         return this.$store.getters.username
-      },
-      getRepos() {
-        return this.$store.getters.repos
       }
     },
+    components: {
+      repolist: RepoList
+    },
+
     // TODO: Push this in router
     beforeRouteEnter (to, from, next) {
       next(vm => {

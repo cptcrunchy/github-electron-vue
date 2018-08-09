@@ -1,5 +1,6 @@
 <template lang="jade">
-  div
+
+  v-app#inspire(dark='')
     app-header
     router-view
 </template>

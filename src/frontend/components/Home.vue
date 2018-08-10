@@ -1,10 +1,11 @@
 <template lang="jade">
 
-  .container
-    .home
-      span Hello {{ username }}. Select the GitHub Repo you want to check for missing exercises.
-    .collection
-      repolist
+  v-container(fill-height='')
+    v-flex(shrink='')
+        h4.display-5 Welcome, {{ username }}
+        v-subheader Please select the GitHub Repo you want to see.
+    v-divider
+    repolist
 
 </template>
 

@@ -18,11 +18,7 @@
               <v-list-tile-title>{{ repo }}</v-list-tile-title>
             </v-list-tile-content>
                 <font-awesome-icon :icon="['fas', 'code-branch']" size="2x"></font-awesome-icon>
-            <v-list-tile-action>
-              <!-- <v-btn icon ripple>
-                <v-icon color="grey lighten-1">info</v-icon>
-              </v-btn> -->
-            </v-list-tile-action>
+            
           </v-list-tile>
         </v-list>
       </v-card>

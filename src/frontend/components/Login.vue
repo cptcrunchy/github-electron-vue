@@ -24,10 +24,9 @@
           console.log('Error while getting token', err);
         });
       },
-
       onSuccess() {
         this.authorizing = false;
-        this.$router.push({name: 'home'});
+        this.$router.push({name: 'user-repos'});
       }
     }
   }

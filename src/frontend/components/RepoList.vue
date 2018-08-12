@@ -1,29 +1,20 @@
-<template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card>
-        <v-list two-line subheader>
-          <v-subheader inset>My Repos</v-subheader>
-
-          <v-list-tile
-            v-for="repo in userRepos"
-            :key="repo"
-                       
-          >
-            <v-list-tile-avatar>
-              <font-awesome-icon :icon="['fab', 'github']" size="2x"></font-awesome-icon>
-            </v-list-tile-avatar>
-
-            <v-list-tile-content>
-              <v-list-tile-title>{{ repo }}</v-list-tile-title>
-            </v-list-tile-content>
-                <font-awesome-icon :icon="['fas', 'code-branch']" size="2x"></font-awesome-icon>
-            
-          </v-list-tile>
-        </v-list>
-      </v-card>
-    </v-flex>
-  </v-layout>
+<template lang="jade">  
+v-flex(xs12='', sm6='')
+  h4.display-5 Welcome, {{ username }}
+  |           
+  v-divider
+  v-card
+    v-list(two-line='', subheader='')
+      v-subheader(inset='') Please select the GitHub Repo you want to see.         
+      |         
+      v-list-tile(v-for='repo in userRepos', :key='repo')
+        v-list-tile-avatar
+          font-awesome-icon(:icon="['fab', 'github']", size='2x')
+        |           
+        v-list-tile-content
+          v-list-tile-title {{ repo }}
+        |             
+        font-awesome-icon(:icon="['fas', 'code-branch']", size='2x')
 </template>
 
 <script>
@@ -33,6 +24,9 @@
     computed: {
       userRepos: function() {
         return this.$store.getters.getRepos
+      },
+      username: function() {
+        return this.$store.getters.username
       }
     },
   }

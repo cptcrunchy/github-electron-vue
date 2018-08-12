@@ -7,7 +7,7 @@ v-flex(xs12='', sm6='')
     v-list(subheader='')
       v-subheader(inset='') Please select the GitHub Repo you want to see.
       |         
-      v-list-tile(v-for='(repo, index) in userRepos', v-bind:repo="repo.full_name", v-bind:index="index", :key='repo.id', @click.native="listFiles")
+      v-list-tile(v-for='(repo, index) in userRepos', v-bind:repo="repo.full_name", :key='repo.id', @click.native="listFiles")
         v-list-tile-avatar
           font-awesome-icon(:icon="['fab', 'github']", size='2x')
         |           
@@ -34,8 +34,12 @@ v-flex(xs12='', sm6='')
       }
     },
     methods:{
-      listFiles() {
-        console.log(this)
+      listFiles(event) {
+        console.log(event.target.innerText)
+      },
+      onSuccess(event) {
+        
+        this.$router.push({name: 'user-repos'});
       }
     }
   }

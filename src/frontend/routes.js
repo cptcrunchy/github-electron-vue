@@ -18,7 +18,12 @@ const routes = [
     path: '/repos',
     name: 'user-repos',
     component: RepoList
-  }
+  },
+  { 
+    path: '/repos/:id',
+    component: RepoList,
+    props: true 
+  },
 ];
 
 export default routes;

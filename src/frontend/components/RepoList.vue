@@ -4,15 +4,15 @@ v-flex(xs12='', sm6='')
   |           
   v-divider
   v-card
-    v-list(two-line='', subheader='')
-      v-subheader(inset='') Please select the GitHub Repo you want to see.         
+    v-list(subheader='')
+      v-subheader(inset='') Please select the GitHub Repo you want to see.
       |         
-      v-list-tile(v-for='repo in userRepos', :key='repo')
+      v-list-tile(v-for='(repo, index) in userRepos', v-bind:repo="repo.full_name", v-bind:index="index", :key='repo.id', @click.native="listFiles")
         v-list-tile-avatar
           font-awesome-icon(:icon="['fab', 'github']", size='2x')
         |           
         v-list-tile-content
-          v-list-tile-title {{ repo }}
+          v-list-tile-title {{ repo.full_name.substring(username.length + 1) }}
         |             
         font-awesome-icon(:icon="['fas', 'code-branch']", size='2x')
 </template>
@@ -23,12 +23,21 @@ v-flex(xs12='', sm6='')
     name: 'repo',
     computed: {
       userRepos: function() {
-        return this.$store.getters.getRepos
+        const codeupRepos = Array.from(this.$store.getters.getRepos).filter(repo => {
+          return repo.full_name.toLowerCase().includes('codeup-'.toLowerCase())
+        })
+
+        return codeupRepos
       },
       username: function() {
         return this.$store.getters.username
       }
     },
+    methods:{
+      listFiles() {
+        console.log(this)
+      }
+    }
   }
 
 </script>

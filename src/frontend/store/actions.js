@@ -10,7 +10,7 @@ const getAxiosClient = (state) => {
   })
 }
 
-export const getToken = ({commit}) => {
+export const getToken = () => {
   ipcRenderer.send('github-oauth', 'getToken')
 }
 
@@ -23,49 +23,40 @@ export const logout = ({commit}) => {
   })
 }
 
-export const getUser = ({ commit, state }) => {
-  return new Promise((resolve, reject) => {
-    getAxiosClient(state).get('/user').then(response => {
-      commit(types.SET_USER, response.data)
-      resolve(response.data)
-    }, err => {
-      console.log(err)
-      reject(err)
-    })
-  })
+export const getUser = async ({ commit, state }) => {
+  try {
+    const response = await getAxiosClient(state).get('/user')
+    commit(types.SET_USER, response.data)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-export const getRepos = ({ commit,state }) => {
-  return new Promise((resolve, reject) => {
-    getAxiosClient(state).get('/user/repos').then(response => {
-      commit(types.SET_USER_REPOS, response.data)
-      resolve(response.data)
-    }, err => {
-      console.log(err)
-      reject(err)
-    })
-  })
+export const getRepos = async ({commit, state}) => {
+  try {
+    const response = await getAxiosClient(state).get('/user/repos')
+    commit(types.SET_USER_REPOS, response.data)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-export const initApp = ({commit, state}) => {
-  return new Promise(resolve => {
+export const initApp = async ({commit, state}) => {
+  try {
+    const user = await getUser({commit, state})
+    const repo = await getRepos({commit, state})
     if (!state.session.access_token) {
-      return resolve()
+      return user
     }
-    getUser({commit, state}).then(user => {
-      commit(types.SET_USER, user)
-      commit(types.AUTHENTICATED, user)    
-      resolve()
-    }, err => {
-      console.log('Error while getting user from github, user will have to login', err)
-      resolve()
-    })
-    getRepos({commit, state}).then(repo => {
-      commit(types.SET_USER_REPOS, repo)
-      resolve()
-    }, err => {
-      console.log('Error while getting user from github, user will have to login', err)
-      resolve()
-    })
-  })
+    commit(types.SET_USER, user)
+    commit(types.AUTHENTICATED, user)
+    commit(types.SET_USER_REPOS, repo)
+
+    return {user, repo}
+
+  } catch (error) {
+    console.log(error)  
+  }
 }

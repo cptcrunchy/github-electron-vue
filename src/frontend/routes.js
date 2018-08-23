@@ -1,6 +1,7 @@
 import Login from './components/Login.vue';
 import Home from './components/Home.vue';
 import RepoList from './components/RepoList.vue';
+import Repo from './components/Repo.vue';
 // auth https://github.com/vuejs/vue-router/blob/dev/examples/auth-flow/app.js
 
 const routes = [    
@@ -21,7 +22,7 @@ const routes = [
   },
   { 
     path: '/repos/:id',
-    component: RepoList,
+    component: Repo,
     props: true 
   },
 ];

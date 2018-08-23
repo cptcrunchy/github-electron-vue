@@ -3346,7 +3346,7 @@ vueify:
     vue-template-compiler "^2.0.0-alpha.8"
     vue-template-es2015-compiler "^1.2.2"
 
-vuetify:
+vuetify@^0.12.7:
   version "0.12.7"
   resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-0.12.7.tgz#da77c1855413ead6e3012c9bb9803f16f71d4c7b"
   dependencies:

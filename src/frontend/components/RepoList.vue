@@ -7,7 +7,7 @@ v-flex(xs12='', sm6='')
     v-list(subheader='')
       v-subheader(inset='') Please select the GitHub Repo you want to see.
       |         
-      v-list-tile(v-for='(repo, index) in userRepos', v-bind:repo="repo.full_name", :key='repo.full_name', @click.native="navigate()")
+      v-list-tile(v-for='(repo, index) in userRepos', v-bind:repo="repo.full_name", :key='repo.full_name', @click.native="navigate(repo.id)")
         v-list-tile-avatar
           font-awesome-icon(:icon="['fab', 'github']", size='2x')
         |           
@@ -20,7 +20,7 @@ v-flex(xs12='', sm6='')
 <script>
   
   export default {
-    name: 'repo',
+    name: 'repolist',
     computed: {
       userRepos: function() {
         const codeupRepos = Array.from(this.$store.getters.getRepos).filter(repo => {
@@ -34,7 +34,10 @@ v-flex(xs12='', sm6='')
       }
     },
     methods:{
-      
+      navigate: function(id) {
+        console.log('Navigate to repo: ', id);
+        this.$router.push('/repos/'.concat(id));
+      }
     }
   }
 

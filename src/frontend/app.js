@@ -14,7 +14,6 @@ import store from './store'
 import {init as initAuth} from './auth'
 
 
-
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 library.add(faGit, faGithub, faGithubAlt, faCodeBranch)

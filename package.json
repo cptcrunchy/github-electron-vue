@@ -22,7 +22,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.2.0",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/vue-fontawesome": "^0.1.1",
-    "axios": "^0.16.1",
+    "axios": "^0.21.1",
     "electron-debug": "^1.0.1",
     "electron-is-dev": "^0.1.2",
     "electron-oauth2": "chamerling/electron-oauth2",
